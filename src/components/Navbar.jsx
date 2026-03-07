@@ -16,11 +16,11 @@ export default function Navbar({ onOpenModal }) {
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'About Us', href: '#' },
-    { name: 'Our Services', href: '#' },
-    { name: 'Our Gallery', href: '#' },
-    { name: 'Our Video', href: '#' },
+    { name: 'Services', href: '#' },
+    { name: 'Gallery', href: '#' },
+    { name: 'Video', href: '#' },
     { name: 'Contact Us', href: '#' },
-    {name:'Our Branches' , href:'#'},
+    {name:'Branches' , href:'#'},
   ];
 
   return (

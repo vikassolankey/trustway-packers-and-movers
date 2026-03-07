@@ -46,7 +46,7 @@ export default function Footer() {
     { label: 'Services', href: '#services', Icon: BadgeCheck },
     { label: 'Branches', href: '#', Icon: Building2 },
     { label: 'Gallery', href: '#gallery', Icon: Images },
-    { label: 'Certificates', href: '#', Icon: BadgeCheck },
+    { label: 'Certificates', href: '/#/certificates', Icon: BadgeCheck },
     { label: 'Contact Us', href: '#contact', Icon: Phone },
   ];
   const ourServices = [

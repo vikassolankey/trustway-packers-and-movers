@@ -10,6 +10,7 @@ import Stats from './components/Stats.jsx';
 import TrustedCompanies from './components/TrustedCompanies.jsx';
 import Gallery from './components/Gallery.jsx';
 import WhyChooseUs from './components/WhyChooseUs.jsx';
+import Certificates from './components/Certificates.jsx';
 import RatesCharges from './components/RatesCharges.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import CTA from './components/CTA.jsx';
@@ -20,6 +21,12 @@ import FloatingContact from './components/FloatingContact.jsx';
 
 export default function AppRoot() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [route, setRoute] = useState(typeof window !== 'undefined' ? window.location.hash : '');
+  useEffect(() => {
+    const onHash = () => setRoute(window.location.hash);
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
   useEffect(() => {
     try {
       const key = 'tw_enquiry_seen_at';
@@ -43,6 +50,22 @@ export default function AppRoot() {
       /* ignore */
     }
   }, [isModalOpen]);
+  if (route === '#/certificates') {
+    return (
+      <div className="relative">
+        <TopHeader />
+        <Navbar onOpenModal={() => setIsModalOpen(true)} />
+        <main>
+          <div className="pt-24">
+            <Certificates />
+          </div>
+        </main>
+        <Footer />
+        <FloatingContact />
+        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
+    );
+  }
   return (
     <div className="relative">
       <BackgroundParticles />
