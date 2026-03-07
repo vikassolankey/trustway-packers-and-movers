@@ -38,6 +38,15 @@
 }
 
 @layer base {
+  @keyframes caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: currentColor; }
+  }
+  .typewriter {
+    white-space: nowrap;
+    border-right: 2px solid currentColor;
+    animation: caret 1s step-end infinite;
+  }
   .goog-te-gadget {
     color: inherit;
     font-size: inherit;

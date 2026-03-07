@@ -15,11 +15,12 @@ export default function Navbar({ onOpenModal }) {
 
   const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'About Us', href: '#' },
+    { name: 'Our Services', href: '#' },
+    { name: 'Our Gallery', href: '#' },
+    { name: 'Our Video', href: '#' },
+    { name: 'Contact Us', href: '#' },
+    {name:'Our Branches' , href:'#'},
   ];
 
   return (

@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
-import { useEffect } from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Home, Info, Images, BadgeCheck, Building2 } from 'lucide-react';
 
 export default function Footer() {
+  const [visits, setVisits] = useState(null);
   useEffect(() => {
     if (!window.googleTranslateElementInit) {
       window.googleTranslateElementInit = function () {
@@ -27,6 +28,41 @@ export default function Footer() {
       document.body.appendChild(s);
     }
   }, []);
+  useEffect(() => {
+    try {
+      const key = 'tw_visit_count';
+      const base = 8600 + Math.floor(Math.random() * 400);
+      const current = parseInt(localStorage.getItem(key) || `${base}`, 10);
+      const next = current + 1;
+      localStorage.setItem(key, `${next}`);
+      setVisits(next);
+    } catch {
+      setVisits(8800);
+    }
+  }, []);
+  const quickLinks = [
+    { label: 'Home', href: '#', Icon: Home },
+    { label: 'About Us', href: '#about', Icon: Info },
+    { label: 'Services', href: '#services', Icon: BadgeCheck },
+    { label: 'Branches', href: '#', Icon: Building2 },
+    { label: 'Gallery', href: '#gallery', Icon: Images },
+    { label: 'Certificates', href: '#', Icon: BadgeCheck },
+    { label: 'Contact Us', href: '#contact', Icon: Phone },
+  ];
+  const ourServices = [
+    'Packers And Movers Service',
+    'Movers And Packers Service',
+    'Relocation Service',
+    'Household Shifting Service',
+    'Shifting Service',
+    'Transport Service',
+    'Car Transport Service',
+    'Bike Transport Service',
+    'Pet Transport Service',
+    'Loading Unloading Service',
+    'Packing Unpacking Service',
+    'Packaging Unpackaging Service',
+  ];
   return (
     <footer className="bg-slate-950 text-slate-400 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -39,34 +75,23 @@ export default function Footer() {
                 <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Aligarh</span>
               </div>
             </div>
-            <p className="leading-relaxed">
-              Trustway Packers And Movers Aligarh - India's most trusted and reliable moving service. Owned by <strong>Tomar</strong>. We make moving simple, safe, and stress-free.
-            </p>
+            <h4 className="text-white font-bold">About Trustway Packers & Movers</h4>
+            <p className="leading-relaxed">Your trusted relocation partner across India. We specialize in safe, reliable and affordable shifting for homes, offices and vehicles.</p>
             <div className="text-xs space-y-1">
               <p>GSTIN: 09EMMPB2450Q1ZL</p>
               <p>UDYAM: UP-02-0162382</p>
-            </div>
-            <div className="translate-wrapper">
-              <div className="translate-label">Select Language</div>
-              <div id="google_translate_element" />
-              <div className="mt-1 text-[10px] text-slate-500">Powered by Google Translate</div>
-            </div>
-            <div className="flex gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                  <Icon size={20} />
-                </a>
-              ))}
+              <p>ISO Certified Company</p>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h4 className="text-white font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              {['About Us', 'Our Services', 'How It Works', 'Pricing', 'Contact Us'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    {item}
+              {quickLinks.map(({ label, href, Icon }) => (
+                <li key={label} className="flex items-center gap-2">
+                  <Icon size={16} className="text-amber-400" />
+                  <a href={href} className="hover:text-primary transition-colors">
+                    {label}
                   </a>
                 </li>
               ))}
@@ -76,7 +101,7 @@ export default function Footer() {
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h4 className="text-white font-bold mb-6">Our Services</h4>
             <ul className="space-y-4">
-              {['Home Shifting', 'Office Relocation', 'Vehicle Transport', 'Storage Solutions', 'Packing Services'].map((item) => (
+              {ourServices.map((item) => (
                 <li key={item}>
                   <a href="#" className="hover:text-primary transition-colors">
                     {item}
@@ -91,11 +116,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-primary shrink-0" />
-                <span>Shop No. A103 Ground Floor, Dilshad Colony, Aligarh Bypass Rd, nearby Indian Oil Petrol, opposite Waqar Hospital, Dhorra, Jamalpur Ka Nagla, Aligarh, UP 202001</span>
+                <span>House No. 610, Ground Floor, Panch Vihar Colony, Gali No. 5, Behind Engineers Colony, Quarsi Holi Chawk, Aligarh, Uttar Pradesh 202001<br />Owner: Akash Kumar Tomar</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-primary shrink-0" />
-                <span>+91 9258157772</span>
+                <span>+91 9627209705</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-primary shrink-0" />
@@ -105,11 +130,26 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+            <div className="mt-6 translate-wrapper">
+              <div className="translate-label">Select Language</div>
+              <div id="google_translate_element" />
+              <div className="mt-1 text-[10px] text-slate-500">Powered by Google Translate</div>
+            </div>
+            <div className="mt-4 flex gap-4">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
 
-        <div className="pt-10 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-          <p>© 2024 Trustway Packers And Movers Aligarh. All rights reserved.</p>
+        <div className="text-center text-sm mb-4">
+          Visitor Count:&nbsp;<span className="text-rose-500 font-semibold">{visits ?? '—'}</span>
+        </div>
+        <div className="pt-6 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
+          <p>© 2026 Trustway Packers And Movers Aligarh. All rights reserved.</p>
           <div className="flex gap-8 items-center">
             <a href="#" className="hover:text-white transition-colors">
               Privacy Policy

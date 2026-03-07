@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { cn } from '../lib/ui.js';
 
 const columns = ['Shifting Type', 'Up to 50 KM', 'Up to 500 KM', 'Up to 1000 KM', 'Up to 1500 KM', 'Within 2500 KM'];
 
@@ -23,7 +24,7 @@ export default function RatesCharges() {
       />
       <div className="absolute inset-0 bg-white/40 z-10" />
       <div className="relative z-20 max-w-7xl mx-auto px-6">
-        <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-display font-extrabold text-center mb-8">
+        <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl md:text-4xl font-display font-extrabold text-center mb-8 text-primary">
           Rates & Charges <span className="text-gradient">Trustway Packers and Movers</span>
         </motion.h2>
         <div className="overflow-x-auto rounded-2xl shadow-xl border border-slate-200 bg-white/80 backdrop-blur">
@@ -31,16 +32,21 @@ export default function RatesCharges() {
             <thead className="bg-slate-50">
               <tr>
                 {columns.map((c) => (
-                  <th key={c} className="px-6 py-4 text-sm font-semibold text-slate-700 whitespace-nowrap">{c}</th>
+                  <th key={c} className="px-6 py-4 text-sm font-semibold text-primary whitespace-nowrap">{c}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {rows.map((r, idx) => (
                 <motion.tr key={r[0]} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className={idx % 2 ? 'bg-white' : 'bg-slate-50/40'}>
-                  {r.map((cell, i) => (
-                    <td key={i} className="px-6 py-4 text-sm text-slate-700 whitespace-nowrap">{cell}</td>
-                  ))}
+                  {r.map((cell, i) => {
+                    const cellClass = i === 0 ? 'text-primary font-semibold' : 'text-amber-700';
+                    return (
+                      <td key={i} className={cn('px-6 py-4 text-sm whitespace-nowrap', cellClass)}>
+                        {cell}
+                      </td>
+                    );
+                  })}
                 </motion.tr>
               ))}
             </tbody>
