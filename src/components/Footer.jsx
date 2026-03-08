@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Home, Info, Images, BadgeCheck, Building2 } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Home, Info, Images, BadgeCheck, Building2, Truck, Car, Bike, PawPrint, Package, Route, Upload } from 'lucide-react';
 
 export default function Footer() {
   const [visits, setVisits] = useState(null);
@@ -42,26 +42,26 @@ export default function Footer() {
   }, []);
   const quickLinks = [
     { label: 'Home', href: '#', Icon: Home },
-    { label: 'About Us', href: '#about', Icon: Info },
-    { label: 'Services', href: '#services', Icon: BadgeCheck },
+    { label: 'About Us', href: '/#/about', Icon: Info },
+    { label: 'Services', href: '/#/services', Icon: BadgeCheck },
     { label: 'Branches', href: '#', Icon: Building2 },
     { label: 'Gallery', href: '#gallery', Icon: Images },
     { label: 'Certificates', href: '/#/certificates', Icon: BadgeCheck },
     { label: 'Contact Us', href: '#contact', Icon: Phone },
   ];
   const ourServices = [
-    'Packers And Movers Service',
-    'Movers And Packers Service',
-    'Relocation Service',
-    'Household Shifting Service',
-    'Shifting Service',
-    'Transport Service',
-    'Car Transport Service',
-    'Bike Transport Service',
-    'Pet Transport Service',
-    'Loading Unloading Service',
-    'Packing Unpacking Service',
-    'Packaging Unpackaging Service',
+    { label: 'Packers And Movers Service', Icon: Package },
+    { label: 'Movers And Packers Service', Icon: Package },
+    { label: 'Relocation Service', Icon: Route },
+    { label: 'Household Shifting Service', Icon: Home },
+    { label: 'Shifting Service', Icon: Route },
+    { label: 'Transport Service', Icon: Truck },
+    { label: 'Car Transport Service', Icon: Car },
+    { label: 'Bike Transport Service', Icon: Bike },
+    { label: 'Pet Transport Service', Icon: PawPrint },
+    { label: 'Loading Unloading Service', Icon: Upload },
+    { label: 'Packing Unpacking Service', Icon: Package },
+    { label: 'Packaging Unpackaging Service', Icon: Package },
   ];
   return (
     <footer className="bg-slate-950 text-slate-400 pt-20 pb-10">
@@ -101,10 +101,11 @@ export default function Footer() {
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h4 className="text-white font-bold mb-6">Our Services</h4>
             <ul className="space-y-4">
-              {ourServices.map((item) => (
-                <li key={item}>
+              {ourServices.map(({ label, Icon }) => (
+                <li key={label} className="flex items-center gap-2">
+                  <Icon size={16} className="text-amber-400" />
                   <a href="#" className="hover:text-primary transition-colors">
-                    {item}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -151,14 +152,14 @@ export default function Footer() {
         <div className="pt-6 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
           <p>© 2026 Trustway Packers And Movers Aligarh. All rights reserved.</p>
           <div className="flex gap-8 items-center">
-            <a href="#" className="hover:text-white transition-colors">
+            <a  >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a  >
               Terms of Service
             </a>
             <a
-              href="#"
+              href="https://www.webworldhub.co.in/"
               className="text-amber-400 hover:text-white transition-colors font-semibold"
               aria-label="Designed by Web World Hub"
             >

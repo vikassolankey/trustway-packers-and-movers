@@ -1,0 +1,11 @@
+export { default as Hero } from '../Hero.jsx';
+export { default as QuoteForm } from '../QuoteForm.jsx';
+export { default as Services } from '../Services.jsx';
+export { default as HowItWorks } from '../HowItWorks.jsx';
+export { default as Stats } from '../Stats.jsx';
+export { default as Gallery } from '../Gallery.jsx';
+export { default as WhyChooseUs } from '../WhyChooseUs.jsx';
+export { default as RatesCharges } from '../RatesCharges.jsx';
+export { default as Testimonials } from '../Testimonials.jsx';
+export { default as TrustedCompanies } from '../TrustedCompanies.jsx';
+export { default as AboutUs } from '../AboutUs.jsx';

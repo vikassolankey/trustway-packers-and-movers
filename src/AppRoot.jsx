@@ -1,23 +1,12 @@
 import { useEffect, useState } from 'react';
 import { BackgroundParticles } from './components/ThreeScene.jsx';
-import Navbar from './components/Navbar.jsx';
-import Hero from './components/Hero.jsx';
-import QuoteForm from './components/QuoteForm.jsx';
-import AboutUs from './components/AboutUs.jsx';
-import Services from './components/Services.jsx';
-import HowItWorks from './components/HowItWorks.jsx';
-import Stats from './components/Stats.jsx';
-import TrustedCompanies from './components/TrustedCompanies.jsx';
-import Gallery from './components/Gallery.jsx';
-import WhyChooseUs from './components/WhyChooseUs.jsx';
-import Certificates from './components/Certificates.jsx';
-import RatesCharges from './components/RatesCharges.jsx';
-import Testimonials from './components/Testimonials.jsx';
+import { Navbar, Footer, TopHeader, FloatingContact } from './components/layout/index.js';
+import { Hero, QuoteForm, AboutUs, Services, HowItWorks, Stats, TrustedCompanies, Gallery, WhyChooseUs, RatesCharges, Testimonials } from './components/sections/index.js';
 import CTA from './components/CTA.jsx';
-import Footer from './components/Footer.jsx';
+import Certificates from './components/Certificates.jsx';
+import AboutPage from './components/AboutPage.jsx';
 import BookingModal from './components/BookingModal.jsx';
-import TopHeader from './components/TopHeader.jsx';
-import FloatingContact from './components/FloatingContact.jsx';
+import ServicesPage from './components/ServicesPage.jsx';
 
 export default function AppRoot() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,6 +47,39 @@ export default function AppRoot() {
         <main>
           <div className="pt-24">
             <Certificates />
+          </div>
+        </main>
+        <Footer />
+        <FloatingContact />
+        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
+    );
+  }
+  if (route === '#/about') {
+    return (
+      <div className="relative">
+        <TopHeader />
+        <Navbar onOpenModal={() => setIsModalOpen(true)} />
+        <main>
+          <div className="pt-24">
+            <AboutPage />
+          </div>
+        </main>
+        <Footer />
+        <FloatingContact />
+        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
+    );
+  }
+  if (route === '#/services') {
+    return (
+      <div className="relative">
+        <TopHeader />
+        <Navbar onOpenModal={() => setIsModalOpen(true)} />
+        <main>
+          <div className="pt-24">
+            <ServicesPage />
+            <Services />
           </div>
         </main>
         <Footer />
