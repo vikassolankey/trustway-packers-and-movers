@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import PinterestIcon from './icons/PinterestIcon.jsx';
 import { cn } from '../lib/ui.js';
 
 export default function Navbar({ onOpenModal }) {
@@ -42,7 +43,7 @@ export default function Navbar({ onOpenModal }) {
             </a>
           ))}
           <div className="flex items-center gap-2">
-            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+            {[Facebook, Twitter, Instagram, Linkedin, PinterestIcon, Youtube].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -69,7 +70,7 @@ export default function Navbar({ onOpenModal }) {
               </a>
             ))}
             <div className="flex items-center gap-3 pt-2">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {[Facebook, Twitter, Instagram, Linkedin, PinterestIcon, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"

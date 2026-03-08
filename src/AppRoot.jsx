@@ -79,7 +79,9 @@ export default function AppRoot() {
         <main>
           <div className="pt-24">
             <ServicesPage />
-            <Services />
+            <div className="-mt-32 md:-mt-40 lg:-mt-44">
+              <Services />
+            </div>
           </div>
         </main>
         <Footer />

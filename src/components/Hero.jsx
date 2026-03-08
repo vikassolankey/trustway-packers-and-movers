@@ -10,6 +10,8 @@ export default function Hero({ onOpenModal }) {
   const [t2, setT2] = useState('');
   const [phase, setPhase] = useState(1);
   const [blink, setBlink] = useState(true);
+  const bgs = ['/gallery/hero.png', '/gallery/home-bg1.jpeg', '/gallery/home-bg2.jpeg', '/gallery/home-bg3.jpeg'];
+  const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
     let i = 0;
@@ -42,13 +44,26 @@ export default function Hero({ onOpenModal }) {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setBgIndex((i) => (i + 1) % bgs.length);
+    }, 2000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      <div
-        className="absolute inset-0 -z-20 bg-center bg-cover"
-        style={{ backgroundImage: "url('/gallery/hero.png')" }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 -z-20">
+        <motion.div
+          key={bgIndex}
+          initial={{ opacity: 0.3 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="absolute inset-0 bg-center bg-cover"
+          style={{ backgroundImage: `url('${bgs[bgIndex]}')` }}
+          aria-hidden="true"
+        />
+      </div>
       <HeroScene />
       <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>

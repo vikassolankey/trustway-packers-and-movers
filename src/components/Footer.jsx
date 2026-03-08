@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Home, Info, Images, BadgeCheck, Building2, Truck, Car, Bike, PawPrint, Package, Route, Upload } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin, Phone, Mail, Home, Info, Images, BadgeCheck, Building2, Truck, Car, Bike, PawPrint, Package, Route, Upload } from 'lucide-react';
+import PinterestIcon from './icons/PinterestIcon.jsx';
 
 export default function Footer() {
   const [visits, setVisits] = useState(null);
@@ -51,17 +52,12 @@ export default function Footer() {
   ];
   const ourServices = [
     { label: 'Packers And Movers Service', Icon: Package },
-    { label: 'Movers And Packers Service', Icon: Package },
     { label: 'Relocation Service', Icon: Route },
     { label: 'Household Shifting Service', Icon: Home },
     { label: 'Shifting Service', Icon: Route },
-    { label: 'Transport Service', Icon: Truck },
     { label: 'Car Transport Service', Icon: Car },
     { label: 'Bike Transport Service', Icon: Bike },
-    { label: 'Pet Transport Service', Icon: PawPrint },
-    { label: 'Loading Unloading Service', Icon: Upload },
-    { label: 'Packing Unpacking Service', Icon: Package },
-    { label: 'Packaging Unpackaging Service', Icon: Package },
+    { label: 'Pet Transport Service', Icon: PawPrint },    
   ];
   return (
     <footer className="bg-slate-950 text-slate-400 pt-20 pb-10">
@@ -79,8 +75,8 @@ export default function Footer() {
             <p className="leading-relaxed">Your trusted relocation partner across India. We specialize in safe, reliable and affordable shifting for homes, offices and vehicles.</p>
             <div className="text-xs space-y-1">
               <p>GSTIN: 09EMMPB2450Q1ZL</p>
-              <p>UDYAM: UP-02-0162382</p>
-              <p>ISO Certified Company</p>
+              <p>UDYAM-UP-25-0019826</p>
+              <p>ISO No. 9001:2015</p>
             </div>
           </motion.div>
 
@@ -117,11 +113,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-primary shrink-0" />
-                <span>House No. 610, Ground Floor, Panch Vihar Colony, Gali No. 5, Behind Engineers Colony, Quarsi Holi Chawk, Aligarh, Uttar Pradesh 202001<br />Owner: Akash Kumar Tomar</span>
+                <span>Shop No. A103 Ground Floor, Dilshad Colony, Aligarh Bypass Rd, nearby Indian Oil Petrol, opposite Waqar Hospital, Dhorra, Jamalpur Ka Nagla, Aligarh, Uttar Pradesh 202001<br />Owner: Mr Tomar</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-primary shrink-0" />
-                <span>+91 9627209705</span>
+                <span>+91 9258157772</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-primary shrink-0" />
@@ -137,7 +133,7 @@ export default function Footer() {
               <div className="mt-1 text-[10px] text-slate-500">Powered by Google Translate</div>
             </div>
             <div className="mt-4 flex gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {[Facebook, Twitter, Instagram, Linkedin, PinterestIcon, Youtube].map((Icon, i) => (
                 <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
                   <Icon size={20} />
                 </a>
