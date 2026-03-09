@@ -4,9 +4,9 @@ import { imageSrc } from '../lib/ui.js';
 
 export default function Certificates() {
   const docs = [
-    { title: 'GST Certificate', badge: 'Government',  desc: 'Official Goods and Services Tax registration certificate ensuring compliance and trust.' },
-    { title: 'Udyam Certificate', badge: 'Government', desc: 'Official Udyam Registration certificate recognizing MSME business identity.' },
-    { title: 'Affidavit Certificate', badge: 'Government',  desc: 'Verified legal affidavit document confirming business authenticity.' },
+    { title: 'GST Certificate', badge: 'Government',  desc: 'Official Goods and Services Tax registration certificate ensuring compliance and trust.', img: '/gallery/certi-bg.png' },
+    { title: 'Udyam Certificate', badge: 'Government', desc: 'Official Udyam Registration certificate recognizing MSME business identity.', img: '/gallery/UdyamRegistrationCertificate.pdf' },
+    { title: 'Affidavit Certificate', badge: 'Government',  desc: 'Verified legal affidavit document confirming business authenticity.', img: '/gallery/certi-bg.png' },
   ];
 
   const bg = '/gallery/certi-bg.png';

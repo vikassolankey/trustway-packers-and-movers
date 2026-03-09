@@ -68,6 +68,26 @@
         caret 1s step-end infinite;
     }
   }
+
+  @keyframes reveal {
+    from { --reveal: 0%; }
+    to { --reveal: 100%; }
+  }
+  .typing-stable {
+    position: relative;
+    --reveal: 0%;
+    -webkit-mask-image: linear-gradient(90deg, #000 0 var(--reveal), transparent var(--reveal));
+    mask-image: linear-gradient(90deg, #000 0 var(--reveal), transparent var(--reveal));
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    animation: reveal 2.2s ease-out 0.2s 1 forwards;
+  }
+
+  .typing-center {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .goog-te-gadget {
     color: inherit;
     font-size: inherit;

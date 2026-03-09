@@ -45,10 +45,10 @@ export default function Footer() {
     { label: 'Home', href: '#', Icon: Home },
     { label: 'About Us', href: '/#/about', Icon: Info },
     { label: 'Services', href: '/#/services', Icon: BadgeCheck },
-    { label: 'Branches', href: '#', Icon: Building2 },
-    { label: 'Gallery', href: '#gallery', Icon: Images },
+    { label: 'Branches', href: '/#/branches', Icon: Building2 },
+    { label: 'Gallery', href: '/#/gallery', Icon: Images },
     { label: 'Certificates', href: '/#/certificates', Icon: BadgeCheck },
-    { label: 'Contact Us', href: '#contact', Icon: Phone },
+    { label: 'Contact Us', href: '/#/contact', Icon: Phone },
   ];
   const ourServices = [
     { label: 'Packers And Movers Service', Icon: Package },
@@ -77,6 +77,13 @@ export default function Footer() {
               <p>GSTIN: 09EMMPB2450Q1ZL</p>
               <p>UDYAM-UP-25-0019826</p>
               <p>ISO No. 9001:2015</p>
+            </div>
+             <div className="mt-4 flex gap-4">
+              {[Facebook, Twitter, Instagram, Linkedin, PinterestIcon, Youtube].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </motion.div>
 
@@ -127,24 +134,19 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-            <div className="mt-6 translate-wrapper">
-              <div className="translate-label">Select Language</div>
-              <div id="google_translate_element" />
+            <div className="mt-6">
+              <div className="translate-label text-xs text-slate-400 mb-1">Select Language</div>
+              <div className="inline-block origin-top-left scale-75 md:scale-90" id="google_translate_element" />
               <div className="mt-1 text-[10px] text-slate-500">Powered by Google Translate</div>
             </div>
-            <div className="mt-4 flex gap-4">
-              {[Facebook, Twitter, Instagram, Linkedin, PinterestIcon, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
+           
           </motion.div>
         </div>
 
-        <div className="text-center text-sm mb-4">
+        <div className="text-center text-sm mb-2">
           Visitor Count:&nbsp;<span className="text-rose-500 font-semibold">{visits ?? '—'}</span>
         </div>
+        
         <div className="pt-6 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
           <p>© 2026 Trustway Packers And Movers Aligarh. All rights reserved.</p>
           <div className="flex gap-8 items-center">

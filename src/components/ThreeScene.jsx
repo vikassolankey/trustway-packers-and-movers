@@ -8,8 +8,9 @@ function TruckModel() {
 
   useFrame((state) => {
     if (group.current) {
-      group.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.2;
-      group.current.position.y = Math.sin(state.clock.getElapsedTime()) * 0.1;
+      const t = state.clock?.elapsedTime ?? 0;
+      group.current.rotation.y = Math.sin(t * 0.5) * 0.2;
+      group.current.position.y = Math.sin(t) * 0.1;
     }
   });
 
@@ -41,9 +42,10 @@ function FloatingBox({ position, color }) {
   const mesh = useRef(null);
   useFrame((state) => {
     if (mesh.current) {
+      const t = state.clock?.elapsedTime ?? 0;
       mesh.current.rotation.x += 0.01;
       mesh.current.rotation.y += 0.01;
-      mesh.current.position.y += Math.sin(state.clock.getElapsedTime() + position[0]) * 0.005;
+      mesh.current.position.y += Math.sin(t + position[0]) * 0.005;
     }
   });
 
@@ -59,7 +61,7 @@ function FloatingBox({ position, color }) {
 export function HeroScene() {
   return (
     <div className="absolute inset-0 -z-10">
-      <Canvas shadows>
+      <Canvas shadows={{ type: THREE.PCFShadowMap }}>
         <PerspectiveCamera makeDefault position={[8, 3, 8]} fov={40} />
         <ambientLight intensity={0.7} />
         <pointLight position={[10, 10, 10]} intensity={1.5} castShadow />
@@ -107,7 +109,8 @@ function ParticlePoints({ count, positions }) {
   const points = useRef(null);
   useFrame((state) => {
     if (points.current) {
-      points.current.rotation.y = state.clock.getElapsedTime() * 0.05;
+      const t = state.clock?.elapsedTime ?? 0;
+      points.current.rotation.y = t * 0.05;
     }
   });
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { BackgroundParticles } from './components/ThreeScene.jsx';
 import { Navbar, Footer, TopHeader, FloatingContact } from './components/layout/index.js';
 import { Hero, QuoteForm, AboutUs, Services, HowItWorks, Stats, TrustedCompanies, Gallery, WhyChooseUs, RatesCharges, Testimonials } from './components/sections/index.js';
@@ -7,6 +8,10 @@ import Certificates from './components/Certificates.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import BookingModal from './components/BookingModal.jsx';
 import ServicesPage from './components/ServicesPage.jsx';
+import GalleryPage from './components/GalleryPage.jsx';
+import VideoPage from './components/VideoPage.jsx';
+import BranchesPage from './components/BranchesPage.jsx';
+import ContactPage from './components/ContactPage.jsx';
 
 export default function AppRoot() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,6 +21,13 @@ export default function AppRoot() {
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
+  useEffect(() => {
+    try {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } catch {
+      window.scrollTo(0, 0);
+    }
+  }, [route]);
   useEffect(() => {
     try {
       const key = 'tw_enquiry_seen_at';
@@ -39,78 +51,88 @@ export default function AppRoot() {
       /* ignore */
     }
   }, [isModalOpen]);
+  let page = null;
   if (route === '#/certificates') {
-    return (
-      <div className="relative">
-        <TopHeader />
-        <Navbar onOpenModal={() => setIsModalOpen(true)} />
-        <main>
-          <div className="pt-24">
-            <Certificates />
-          </div>
-        </main>
-        <Footer />
-        <FloatingContact />
-        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    page = (
+      <div className="pt-24">
+        <Certificates />
       </div>
     );
-  }
-  if (route === '#/about') {
-    return (
-      <div className="relative">
-        <TopHeader />
-        <Navbar onOpenModal={() => setIsModalOpen(true)} />
-        <main>
-          <div className="pt-24">
-            <AboutPage />
-          </div>
-        </main>
-        <Footer />
-        <FloatingContact />
-        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+  } else if (route === '#/about') {
+    page = (
+      <div className="pt-24">
+        <AboutPage />
       </div>
     );
-  }
-  if (route === '#/services') {
-    return (
-      <div className="relative">
-        <TopHeader />
-        <Navbar onOpenModal={() => setIsModalOpen(true)} />
-        <main>
-          <div className="pt-24">
-            <ServicesPage />
-            <div className="-mt-32 md:-mt-40 lg:-mt-44">
-              <Services />
-            </div>
-          </div>
-        </main>
-        <Footer />
-        <FloatingContact />
-        <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+  } else if (route === '#/services') {
+    page = (
+      <div className="pt-24">
+        <ServicesPage />
+        <div className="-mt-32 md:-mt-40 lg:-mt-44">
+          <Services />
+        </div>
       </div>
+    );
+  } else if (route === '#/gallery') {
+    page = (
+      <div className="pt-24">
+        <GalleryPage />
+      </div>
+    );
+  } else if (route === '#/video') {
+    page = (
+      <div className="pt-24">
+        <VideoPage />
+      </div>
+    );
+  } else if (route === '#/branches') {
+    page = (
+      <div className="pt-24">
+        <BranchesPage />
+      </div>
+    );
+  } else if (route === '#/contact') {
+    page = (
+      <div className="pt-24">
+        <ContactPage />
+      </div>
+    );
+  } else {
+    page = (
+      <>
+        <BackgroundParticles />
+        <main>
+          <Hero onOpenModal={() => setIsModalOpen(true)} />
+          <AboutUs onOpenModal={() => setIsModalOpen(true)} />
+          <Services />
+          <HowItWorks />
+          <Stats />
+          <TrustedCompanies />
+          <Gallery />
+          <WhyChooseUs />
+          <RatesCharges />
+          <Testimonials />
+          <QuoteForm />
+          <CTA onOpenModal={() => setIsModalOpen(true)} />
+        </main>
+      </>
     );
   }
   return (
     <div className="relative">
-      <BackgroundParticles />
       <TopHeader />
       <Navbar onOpenModal={() => setIsModalOpen(true)} />
-      <main>
-        <Hero onOpenModal={() => setIsModalOpen(true)} />
-        <AboutUs onOpenModal={() => setIsModalOpen(true)} />
-       
-        <Services />
-        
-        <HowItWorks />
-        <Stats />
-        <TrustedCompanies />
-        <Gallery />
-        <WhyChooseUs />
-        <RatesCharges />
-        <Testimonials />
-        <QuoteForm />
-        <CTA onOpenModal={() => setIsModalOpen(true)} />
-      </main>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={route || 'home'}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+        >
+          {page}
+        </motion.div>
+      </AnimatePresence>
       <Footer />
       <FloatingContact />
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

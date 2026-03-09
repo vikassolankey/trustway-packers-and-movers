@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Shield, Star, ArrowRight } from 'lucide-react';
 import { HeroScene } from './ThreeScene.jsx';
+import { imageSrc } from '../lib/ui.js';
 
 export default function Hero({ onOpenModal }) {
   const line1 = 'Fast & Reliable';
@@ -96,7 +97,17 @@ export default function Hero({ onOpenModal }) {
           <div className="mt-12 flex items-center gap-8">
             <div className="flex -space-x-3">
               {[1, 2, 3, 4].map((i) => (
-                <img key={i} src={`/img?url=${encodeURIComponent(`https://picsum.photos/seed/user${i}/100/100`)}`} className="w-10 h-10 rounded-full border-2 border-white shadow-sm" alt="User" referrerPolicy="no-referrer" />
+                <img
+                  key={i}
+                  src={imageSrc(`https://picsum.photos/seed/user${i}/100/100`)}
+                  className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
+                  alt="User"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = '/gallery/logo.png';
+                  }}
+                />
               ))}
             </div>
             <div>

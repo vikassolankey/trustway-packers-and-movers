@@ -33,7 +33,7 @@ export default function Stats() {
   return (
     <section id="stats" className="relative py-24 overflow-hidden">
       <div
-        className="absolute inset-0 -z-20 bg-center bg-cover blur-[2px]"
+        className="absolute inset-0 -z-20 bg-center bg-cover "
         style={{ backgroundImage: "url('/gallery/stats.jpg')" }}
         aria-hidden="true"
       />

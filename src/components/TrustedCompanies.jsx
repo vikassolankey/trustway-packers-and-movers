@@ -3,36 +3,34 @@ import { imageSrc } from '../lib/ui.js';
 
 export default function TrustedCompanies() {
   const logos = [
-    { name: 'Whirlpool', url: 'https://whirlpool.com', domain: 'whirlpool.com' },
-    { name: 'SBI', url: 'https://onlinesbi.sbi', domain: 'onlinesbi.sbi' },
-    { name: 'Federal Bank', url: 'https://federalbank.co.in', domain: 'federalbank.co.in' },
-    { name: 'Indian Oil', url: 'https://indianoil.in', domain: 'indianoil.in' },
-    { name: 'Punjab National Bank', url: 'https://pnbindia.in', domain: 'pnbindia.in' },
-    { name: 'Wipro', url: 'https://wipro.com', domain: 'wipro.com' },
-    { name: 'Reliance Industries', url: 'https://ril.com', domain: 'relianceindustries.com' },
-    { name: 'Mahindra', url: 'https://mahindra.com', domain: 'mahindra.com' },
-    { name: 'TCS', url: 'https://tcs.com', domain: 'tcs.com' },
-    { name: 'HDFC Bank', url: 'https://hdfcbank.com', domain: 'hdfcbank.com' },
-    { name: 'ONGC', url: 'https://ongcindia.com', domain: 'ongcindia.com' },
-    { name: 'Maruti Suzuki', url: 'https://marutisuzuki.com', domain: 'marutisuzuki.com' },
+    { name: 'Whirlpool', url: 'https://whirlpool.com', logo: 'https://cdn.simpleicons.org/whirlpool/334155' },
+    { name: 'SBI', url: 'https://sbi.co.in', logo: 'https://cdn.simpleicons.org/statebankofindia/334155' },
+    { name: 'Federal Bank', url: 'https://federalbank.co.in', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Federal_Bank_logo.svg/512px-Federal_Bank_logo.svg.png' },
+    { name: 'Indian Oil', url: 'https://iocl.com', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Indian_Oil_Logo.svg/512px-Indian_Oil_Logo.svg.png' },
+    { name: 'Punjab National Bank', url: 'https://pnbindia.in', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/PNB_logo.svg/512px-PNB_logo.svg.png' },
+    { name: 'Wipro', url: 'https://wipro.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wipro_Logo.svg/512px-Wipro_Logo.svg.png' },
+    { name: 'Reliance Industries', url: 'https://ril.com', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Reliance_Industries_Logo.svg/512px-Reliance_Industries_Logo.svg.png' },
+    { name: 'Mahindra', url: 'https://mahindra.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Mahindra_and_Mahindra_Logo.svg/512px-Mahindra_and_Mahindra_Logo.svg.png' },
+    { name: 'TCS', url: 'https://tcs.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png' },
+    { name: 'HDFC Bank', url: 'https://hdfcbank.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/HDFC_Bank_Logo.svg/512px-HDFC_Bank_Logo.svg.png' },
+    { name: 'ONGC', url: 'https://ongcindia.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/ONGC_Logo.svg/512px-ONGC_Logo.svg.png' },
+    { name: 'Maruti Suzuki', url: 'https://marutisuzuki.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Maruti_Suzuki_logo_2011.svg/512px-Maruti_Suzuki_logo_2011.svg.png' },
   ];
   const logos2 = [
-    { name: 'Bharat Petroleum', url: 'https://bpcl.in', domain: 'bpcl.in' },
-    { name: 'Nestlé', url: 'https://nestle.com', domain: 'nestle.com' },
-    { name: 'Asian Paints', url: 'https://asianpaints.com', domain: 'asianpaints.com' },
-    { name: 'Bosch', url: 'https://bosch.com', domain: 'bosch.com' },
-    { name: 'ITC', url: 'https://itcportal.com', domain: 'itcportal.com' },
-    { name: 'L&T', url: 'https://larsentoubro.com', domain: 'larsentoubro.com' },
-    { name: 'Microsoft', url: 'https://microsoft.com', domain: 'microsoft.com' },
-    { name: 'Google', url: 'https://google.com', domain: 'google.com' },
-    { name: 'Amazon', url: 'https://amazon.in', domain: 'amazon.in' },
-    { name: 'Flipkart', url: 'https://flipkart.com', domain: 'flipkart.com' },
+    { name: 'Bharat Petroleum', url: 'https://bharatpetroleum.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/BPCL_logo.svg/512px-BPCL_logo.svg.png' },
+    { name: 'Nestlé', url: 'https://nestle.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Nestl%C3%A9_textlogo_blue.svg/512px-Nestl%C3%A9_textlogo_blue.svg.png' },
+    { name: 'Asian Paints', url: 'https://asianpaints.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Asian_Paints_Logo.svg/512px-Asian_Paints_Logo.svg.png' },
+    { name: 'Bosch', url: 'https://bosch.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bosch-brand.svg/512px-Bosch-brand.svg.png' },
+    { name: 'ITC', url: 'https://itcportal.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ITC_Limited_Logo.svg/512px-ITC_Limited_Logo.svg.png' },
+    { name: 'L&T', url: 'https://larsentoubro.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/L%26T.svg/512px-L%26T.svg.png' },
+    { name: 'Microsoft', url: 'https://microsoft.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png' },
+    { name: 'Google', url: 'https://google.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/512px-Google_2015_logo.svg.png' },
+    { name: 'Amazon', url: 'https://amazon.in', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png' },
+    { name: 'Flipkart', url: 'https://flipkart.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flipkart_logo.svg/512px-Flipkart_logo.svg.png' },
   ];
 
-  const row = [...logos, ...logos];
-  const row2 = [...logos2, ...logos2];
-  const clearbit = (d) => `https://logo.clearbit.com/${d}`;
-  const gFavicon = (d) => `https://www.google.com/s2/favicons?domain=${d}&sz=128`;
+  const combined = [...logos, ...logos2];
+  const row = [...combined, ...combined];
 
   return (
     <section className="py-20 bg-white">
@@ -45,66 +43,34 @@ export default function TrustedCompanies() {
       </div>
       <div className="overflow-hidden">
         <motion.div
-          className="flex items-center gap-8 md:gap-12 px-6"
+          className="flex items-stretch gap-6 md:gap-8 px-6"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
+          transition={{ duration: 30, ease: 'linear', repeat: Infinity }}
         >
           {row.map((item, i) => (
             <a
               key={i}
               href={item.url}
-              className="shrink-0 w-32 h-16 md:w-40 md:h-20 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center"
+              className="shrink-0 w-36 md:w-44 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center py-3"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={item.name}
             >
-              <img
-                src={imageSrc(clearbit(item.domain))}
-                alt={item.name}
-                className="max-h-12 md:max-h-14 object-contain opacity-100 transition-all"
-                onError={(e) => {
-                  const tried = e.currentTarget.getAttribute('data-fallback');
-                  if (!tried) {
-                    e.currentTarget.src = gFavicon(item.domain);
-                    e.currentTarget.setAttribute('data-fallback', 'fav');
-                  } else {
-                    e.currentTarget.src = '/gallery/logo.png';
-                  }
-                }}
-                referrerPolicy="no-referrer"
-              />
-            </a>
-          ))}
-        </motion.div>
-        <motion.div
-          className="mt-6 flex items-center gap-8 md:gap-12 px-6"
-          animate={{ x: ['-50%', '0%'] }}
-          transition={{ duration: 32, ease: 'linear', repeat: Infinity }}
-        >
-          {row2.map((item, i) => (
-            <a
-              key={i}
-              href={item.url}
-              className="shrink-0 w-32 h-16 md:w-40 md:h-20 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-center"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={item.name}
-            >
-              <img
-                src={imageSrc(clearbit(item.domain))}
-                alt={item.name}
-                className="max-h-12 md:max-h-14 object-contain opacity-100 transition-all"
-                onError={(e) => {
-                  const tried = e.currentTarget.getAttribute('data-fallback');
-                  if (!tried) {
-                    e.currentTarget.src = gFavicon(item.domain);
-                    e.currentTarget.setAttribute('data-fallback', 'fav');
-                  } else {
-                    e.currentTarget.src = '/gallery/logo.png';
-                  }
-                }}
-                referrerPolicy="no-referrer"
-              />
+              <div className="h-12 md:h-14 flex items-center">
+                <img
+                  src={imageSrc(item.logo)}
+                  alt={item.name}
+                  className="max-h-12 md:max-h-14 object-contain opacity-100 transition-all"
+                  // onError={(e) => {
+                  //   e.currentTarget.onerror = null;
+                  //   e.currentTarget.src = '/gallery/logo.png';
+                  // }}
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="mt-2 text-xs md:text-sm font-medium text-slate-600 text-center px-2">
+                {item.name}
+              </div>
             </a>
           ))}
         </motion.div>
