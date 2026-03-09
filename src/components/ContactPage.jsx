@@ -3,7 +3,7 @@ import { Phone, Mail, User2, MapPin, ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
   const bg = '/gallery/contact-bg.jpeg';
-  const phone = '+91 9627209705';
+  const phone = '+91 9258157772';
   const email = 'trustwaypackersandmovers@gmail.com';
   const owner = 'Mr Tomar';
   const address =
