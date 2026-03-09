@@ -3,18 +3,17 @@ import { imageSrc } from '../lib/ui.js';
 
 export default function TrustedCompanies() {
   const logos = [
-    { name: 'Whirlpool', url: 'https://whirlpool.com', logo: 'https://cdn.simpleicons.org/whirlpool/334155' },
-    { name: 'SBI', url: 'https://sbi.co.in', logo: 'https://cdn.simpleicons.org/statebankofindia/334155' },
-    { name: 'Federal Bank', url: 'https://federalbank.co.in', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Federal_Bank_logo.svg/512px-Federal_Bank_logo.svg.png' },
-    { name: 'Indian Oil', url: 'https://iocl.com', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Indian_Oil_Logo.svg/512px-Indian_Oil_Logo.svg.png' },
-    { name: 'Punjab National Bank', url: 'https://pnbindia.in', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/PNB_logo.svg/512px-PNB_logo.svg.png' },
-    { name: 'Wipro', url: 'https://wipro.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wipro_Logo.svg/512px-Wipro_Logo.svg.png' },
-    { name: 'Reliance Industries', url: 'https://ril.com', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Reliance_Industries_Logo.svg/512px-Reliance_Industries_Logo.svg.png' },
-    { name: 'Mahindra', url: 'https://mahindra.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Mahindra_and_Mahindra_Logo.svg/512px-Mahindra_and_Mahindra_Logo.svg.png' },
-    { name: 'TCS', url: 'https://tcs.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png' },
-    { name: 'HDFC Bank', url: 'https://hdfcbank.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/HDFC_Bank_Logo.svg/512px-HDFC_Bank_Logo.svg.png' },
-    { name: 'ONGC', url: 'https://ongcindia.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/ONGC_Logo.svg/512px-ONGC_Logo.svg.png' },
-    { name: 'Maruti Suzuki', url: 'https://marutisuzuki.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Maruti_Suzuki_logo_2011.svg/512px-Maruti_Suzuki_logo_2011.svg.png' },
+    { name: 'Whirlpool', url: 'https://whirlpool.com', logo: 'https://th.bing.com/th/id/OIP.JnLzXqBCz1Pc-rB76vm55gHaCS?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'SBI', url: 'https://sbi.co.in', logo: 'https://th.bing.com/th/id/OIP.qsrGATcdBK99FiVBKrmnlgHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'Indian Oil', url: 'https://iocl.com', logo: 'https://th.bing.com/th/id/OIP.Wz4nETWQgxdzXTgueKYWlgHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'Punjab National Bank', url: 'https://pnbindia.in', logo: 'https://tse4.mm.bing.net/th/id/OIP.GIF74LU4bpdBgDO9HfU6tgAAAA?rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'Wipro', url: 'https://wipro.com', logo: 'https://th.bing.com/th/id/OIP.YjODjDA0O2rDqD_LQUzKDgHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'Reliance Industries', url: 'https://ril.com', logo: 'https://1000logos.net/wp-content/uploads/2021/08/Reliance-Industries-Limited-RIL-Logo-1966.png' },
+    { name: 'Mahindra', url: 'https://mahindra.com', logo: 'https://tse4.mm.bing.net/th/id/OIP._mKN-XWUleASlO4pPHqXeQHaD3?rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'TCS', url: 'https://tcs.com', logo: 'https://tse1.mm.bing.net/th/id/OIP.PWb0ottxUtR1QhSE8nS67gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'HDFC Bank', url: 'https://hdfcbank.com', logo: 'https://logodix.com/logo/840369.jpg' },
+    { name: 'ONGC', url: 'https://ongcindia.com', logo: 'https://th.bing.com/th/id/OIP.SExkoSOwHgHDscFkb0b2hQAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+    { name: 'Maruti Suzuki', url: 'https://marutisuzuki.com', logo: 'https://crystalpng.com/wp-content/uploads/2025/08/Maruti-Suzuki-Logo-png-1024x1024.png' },
   ];
   const logos2 = [
     { name: 'Bharat Petroleum', url: 'https://bharatpetroleum.com', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/BPCL_logo.svg/512px-BPCL_logo.svg.png' },

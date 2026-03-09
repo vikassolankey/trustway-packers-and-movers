@@ -1,32 +1,37 @@
-import { useEffect } from 'react';
 import { motion } from 'motion/react';
 
 export default function VideoPage() {
-  const pins = [
-    'https://pin.it/4ldCkNXsv',
-    'https://pin.it/6H5M5fpQi',
-    'https://pin.it/7GBqaTLTE',
-    'https://pin.it/2ZDgMJuAc',
+  const pins = ['https://www.youtube.com/shorts/nRJH0nWMeZw',
+    'https://www.youtube.com/shorts/cjnFvJAJ6o0',
+    'https://www.youtube.com/shorts/AHFM5kIL2Rw',
+    'https://www.youtube.com/shorts/gRzLKCksZ_s',
+    'https://www.youtube.com/shorts/JOuCQyffsXc',
+    'https://www.youtube.com/shorts/zwnLclrW16s'
+
   ];
 
-  useEffect(() => {
-    const id = 'pinterest-embed';
-    if (!document.getElementById(id)) {
-      const s = document.createElement('script');
-      s.id = id;
-      s.async = true;
-      s.defer = true;
-      s.src = 'https://assets.pinterest.com/js/pinit.js';
-      document.body.appendChild(s);
-    } else if (window?.PinUtils?.build) {
-      // Rebuild embeds if script already present
-      try {
-        window.PinUtils.build();
-      } catch {
-        /* ignore */
+  const toYouTubeEmbed = (href) => {
+    try {
+      const u = new URL(href);
+      if (/youtu\.be$/i.test(u.hostname)) {
+        const id = u.pathname.replace('/', '');
+        return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&controls=1`;
       }
+      if (/youtube\.com$/i.test(u.hostname)) {
+        if (u.pathname.startsWith('/shorts/')) {
+          const id = u.pathname.split('/shorts/')[1].split('/')[0];
+          return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&controls=1`;
+        }
+        if (u.pathname === '/watch' && u.searchParams.get('v')) {
+          const id = u.searchParams.get('v');
+          return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&controls=1`;
+        }
+      }
+    } catch {
+      /* ignore */
     }
-  }, []);
+    return null;
+  };
 
   return (
     <div className="min-h-screen">
@@ -89,19 +94,30 @@ export default function VideoPage() {
                 transition={{ delay: (i % 4) * 0.06 }}
                 className="relative rounded-2xl border border-slate-200 shadow-sm p-2 bg-white overflow-hidden"
               >
-                <a
-                  data-pin-do="embedPin"
-                  data-pin-width="medium"
-                  href={href}
-                  className="block"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* Pinterest script replaces this anchor with an embed; keep as fallback thumbnail */}
-                  <div className="aspect-[9/16] bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 text-sm">
-                    View on Pinterest
-                  </div>
-                </a>
+                {(() => {
+                  const embed = toYouTubeEmbed(href);
+                  if (embed) {
+                    return (
+                      <div className="aspect-[9/16] rounded-xl overflow-hidden">
+                        <iframe
+                          title={`Video ${i + 1}`}
+                          src={embed}
+                          className="w-full h-full"
+                          loading="lazy"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      </div>
+                    );
+                  }
+                  return (
+                    <a href={href} className="block" target="_blank" rel="noopener noreferrer">
+                      <div className="aspect-[9/16] bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 text-sm">
+                        Open Video
+                      </div>
+                    </a>
+                  );
+                })()}
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-200 pointer-events-none" />
               </motion.div>
             ))}
