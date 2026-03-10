@@ -1,19 +1,41 @@
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 
 export default function GalleryPage() {
   const features = [
-    { title: 'Real Moves', desc: 'Genuine snapshots from our relocation journeys.', icon: '📸', color: 'bg-rose-50' },
-    { title: 'Happy Clients', desc: 'Every smile tells a success story of trust.', icon: '😊', color: 'bg-emerald-50' },
-    { title: 'Nationwide Reach', desc: 'Serving families & businesses across India.', icon: '🚚', color: 'bg-indigo-50' },
+    {
+      title: "Real Moves",
+      desc: "Genuine snapshots from our relocation journeys.",
+      icon: "📸",
+      color: "bg-rose-50",
+    },
+    {
+      title: "Happy Clients",
+      desc: "Every smile tells a success story of trust.",
+      icon: "😊",
+      color: "bg-emerald-50",
+    },
+    {
+      title: "Nationwide Reach",
+      desc: "Serving families & businesses across India.",
+      icon: "🚚",
+      color: "bg-indigo-50",
+    },
   ];
   const images = [
-    '/gallery/gallery8.jpeg',
-    '/gallery/gallery6.jpeg',
-    '/gallery/gallery5.jpeg',
-    '/gallery/gallery4.jpeg',
-    '/gallery/gallery3.jpeg',
-    '/gallery/gallery2.jpeg',
-    '/gallery/gallery1.jpeg',
+    "/gallery/gallery13.jpeg",
+    "/gallery/gallery14.jpeg",
+    "/gallery/gallery15.jpeg",
+    "/gallery/gallery16.jpeg",
+    "/gallery/gallery8.jpeg",
+    "/gallery/gallery6.jpeg",
+    "/gallery/gallery5.jpeg",
+    "/gallery/gallery4.jpeg",
+    "/gallery/gallery3.jpeg",
+    "/gallery/gallery2.jpeg",
+    "/gallery/gallery1.jpeg",
+    "/gallery/gallery10.jpeg",
+    "/gallery/gallery11.jpeg",
+    "/gallery/gallery12.jpeg",
   ];
   return (
     <div className="min-h-screen">
@@ -29,14 +51,15 @@ export default function GalleryPage() {
             <h1 className="text-4xl md:text-6xl font-display font-extrabold text-white leading-tight text-center">
               <span
                 className="typing-heading typing-center"
-                style={{ ['--typing-steps']: 26, ['--typing-ch']: '26ch' }}
+                style={{ ["--typing-steps"]: 26, ["--typing-ch"]: "26ch" }}
               >
                 Explore Our Moving Moments
               </span>
             </h1>
             <p className="mt-6 text-slate-200/90 md:text-lg">
-              Discover the real stories of trust, care, and commitment through the lens of our work. Every picture captures a
-              journey with Trustway Packers & Movers.
+              Discover the real stories of trust, care, and commitment through
+              the lens of our work. Every picture captures a journey with
+              Trustway Packers & Movers.
             </p>
             <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
               {features.map(({ title, desc, icon, color }, i) => (

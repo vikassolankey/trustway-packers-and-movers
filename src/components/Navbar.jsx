@@ -21,7 +21,7 @@ export default function Navbar({ onOpenModal }) {
     { name: 'Gallery', href: '/#/gallery' },
     { name: 'Video', href: '/#/video' },
     { name: 'Contact Us', href: '/#/contact' },
-    { name: 'Branches', href: '/#/branches'},
+    { name: 'Branches', href: '/#/branches' },
   ];
 
   const barState = isMobileMenuOpen

@@ -93,9 +93,7 @@ export default function Footer() {
               {quickLinks.map(({ label, href, Icon }) => (
                 <li key={label} className="flex items-center gap-2">
                   <Icon size={16} className="text-amber-400" />
-                  <a href={href} className="hover:text-primary transition-colors">
-                    {label}
-                  </a>
+                  <a href={href} className="hover:text-primary transition-colors">{label}</a>
                 </li>
               ))}
             </ul>
