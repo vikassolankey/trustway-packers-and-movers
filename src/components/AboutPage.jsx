@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Shield, Truck, Users } from 'lucide-react';
 import { imageSrc } from '../lib/ui.js';
+import OwnerSection from './OwnerSection.jsx';
 
 export default function AboutPage() {
   const bg = '/gallery/about-bg.jpeg';
@@ -10,7 +11,18 @@ export default function AboutPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loop, setLoop] = useState(0);
   const [speed, setSpeed] = useState(120);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  useEffect(() => {
+    if (isMobile) {
+      setText('Safe • Fast • Reliable');
+      return;
+    }
     const current = phrases[loop % phrases.length];
     const next = isDeleting ? current.substring(0, text.length - 1) : current.substring(0, text.length + 1);
     const t = setTimeout(() => {
@@ -25,7 +37,7 @@ export default function AboutPage() {
       }
     }, speed);
     return () => clearTimeout(t);
-  }, [text, isDeleting, loop, speed]);
+  }, [text, isDeleting, loop, speed, isMobile]);
   const stats = [
     { label: 'Years Experience', value: '10+', Icon: Shield },
     { label: 'Moves Completed', value: '5000+', Icon: Truck },
@@ -101,6 +113,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <OwnerSection />
     </div>
   );
 }

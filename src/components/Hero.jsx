@@ -13,8 +13,21 @@ export default function Hero({ onOpenModal }) {
   const [blink, setBlink] = useState(true);
   const bgs = ['/gallery/hero.png', '/gallery/home-bg1.jpeg', '/gallery/home-bg2.jpeg', '/gallery/home-bg3.jpeg'];
   const [bgIndex, setBgIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const check = () => setIsMobile(typeof window !== 'undefined' && window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setT1(line1);
+      setT2(line2);
+      return;
+    }
     let i = 0;
     let j = 0;
     let active = true;
@@ -38,12 +51,13 @@ export default function Hero({ onOpenModal }) {
     return () => {
       active = false;
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
+    if (isMobile) return;
     const id = setInterval(() => setBlink((b) => !b), 500);
     return () => clearInterval(id);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -75,12 +89,16 @@ export default function Hero({ onOpenModal }) {
           <motion.h1 className="text-5xl md:text-7xl font-display font-extrabold leading-[1.1] mb-6">
             <span className="inline-block">
               {t1}
-              <span className={`inline-block align-baseline ml-1 w-1 h-[1em] ${phase === 1 && blink ? 'bg-slate-400' : 'bg-transparent'}`} />
+              {!isMobile && (
+                <span className={`inline-block align-baseline ml-1 w-1 h-[1em] ${phase === 1 && blink ? 'bg-slate-400' : 'bg-transparent'}`} />
+              )}
             </span>
             <br />
             <span className="text-gradient inline-block mt-2">
               {t2}
-              <span className={`inline-block align-baseline ml-1 w-1 h-[1em] ${phase === 2 && blink ? 'bg-slate-400' : 'bg-transparent'}`} />
+              {!isMobile && (
+                <span className={`inline-block align-baseline ml-1 w-1 h-[1em] ${phase === 2 && blink ? 'bg-slate-400' : 'bg-transparent'}`} />
+              )}
             </span>
           </motion.h1>
           <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">Move your home and office safely with Trustway Packers and Movers Aligarh. We handle your belongings with care and precision.</p>

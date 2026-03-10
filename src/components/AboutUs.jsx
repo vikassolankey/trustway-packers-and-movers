@@ -8,8 +8,20 @@ export default function AboutUs({ onOpenModal }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loop, setLoop] = useState(0);
   const [speed, setSpeed] = useState(120);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setText('Safe • Fast • Reliable');
+      return;
+    }
     const current = phrases[loop % phrases.length];
     const nextText = isDeleting ? current.substring(0, text.length - 1) : current.substring(0, text.length + 1);
     const timeout = setTimeout(() => {
@@ -22,9 +34,9 @@ export default function AboutUs({ onOpenModal }) {
         setLoop(loop + 1);
         setSpeed(120);
       }
-    }, isDeleting ? speed : speed);
+    }, speed);
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, loop]);
+  }, [text, isDeleting, loop, speed, isMobile]);
 
   const stats = [
     { label: 'Industry Experience', value: '10+ Yrs', icon: <Award className="text-amber-400" size={24} /> },
